@@ -1,0 +1,8 @@
+main: de.rangun.TABWorldDate.TABWorldDatePlugin
+name: TABWorldDate
+version: '@version@'
+description: TAB plugin providing a placeholder for the world's current date
+authors:
+  - Velnias75
+api-version: '1.16'
+depend: [TAB]
