@@ -41,6 +41,12 @@ dependencies {
 	annotationProcessor "com.google.code.findbugs:annotations:${project.findbugs_version}"
 	
 	compileOnly "me.neznamy:tab-api:${project.tabapi_version}"
+	
+	implementation(project(path: ':spiget', configuration: 'shadow')) {
+		exclude group:'dev.derklaro.spiget'
+	}
+	
+	shadow(project(':spiget')) 
 }
 
 processResources {
@@ -50,12 +56,23 @@ processResources {
     }
 }
 
+task submodulesUpdate(type:Exec) {
+  description 'Updates (and inits) git submodules'
+  commandLine 'git', 'submodule', 'update', '--init', '--recursive', '--remote'
+  group 'Build Setup'
+}
+
+compileJava {
+	dependsOn submodulesUpdate
+}
+
 shadowJar {
 
 	archiveClassifier.set('')
     
     relocate 'org.bstats', 'de.rangun.TABWorldDate.shadowed.org.bstats'
-
+	relocate 'de.rangun.spiget', 'de.rangun.TABWorldDate.shadowed.de.rangun.spiget'
+	
     exclude 'META-INF/**'
     
     minimize()

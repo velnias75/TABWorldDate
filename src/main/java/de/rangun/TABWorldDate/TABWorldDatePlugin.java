@@ -29,7 +29,10 @@ import org.bukkit.Bukkit;
 import org.bukkit.World;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.scheduler.BukkitRunnable;
 
+import de.rangun.TABWorldDate.listener.JoinListener;
+import de.rangun.spiget.PluginClient;
 import me.neznamy.tab.api.TabAPI;
 
 /**
@@ -38,12 +41,17 @@ import me.neznamy.tab.api.TabAPI;
  */
 public final class TABWorldDatePlugin extends JavaPlugin {
 
+	private final PluginClient spigetClient = new PluginClient(-1, getDescription().getVersion(),
+			getDescription().getName(), getLogger());
+
 	@Override
 	public void onEnable() {
 
 		saveDefaultConfig();
 
 		final FileConfiguration config = getConfig();
+
+		getServer().getPluginManager().registerEvents(new JoinListener(spigetClient), this);
 
 		World world = null;
 
@@ -70,7 +78,7 @@ public final class TABWorldDatePlugin extends JavaPlugin {
 						final long gameTime = world2.getGameTime();
 						final long gameTimeDays = gameTime - dayTime;
 
-						cal.set(0, Calendar.JANUARY, 1, 0, 0, 0);
+						cal.set(1, Calendar.JANUARY, 1, 0, 0, 0);
 
 						cal.setTimeInMillis(cal.getTimeInMillis() + gameTimeDays * 3600L);
 
@@ -88,5 +96,14 @@ public final class TABWorldDatePlugin extends JavaPlugin {
 
 		final int pluginId = 16388;
 		new Metrics(this, pluginId);
+
+		new BukkitRunnable() {
+
+			@Override
+			public void run() {
+				spigetClient.checkVersion();
+			}
+
+		}.runTaskAsynchronously(this);
 	}
 }
