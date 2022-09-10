@@ -21,8 +21,10 @@ package de.rangun.TABWorldDate;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.Locale;
 
+import org.bstats.bukkit.Metrics;
 import org.bukkit.Bukkit;
 import org.bukkit.World;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -53,9 +55,9 @@ public final class TABWorldDatePlugin extends JavaPlugin {
 			}
 		}
 
-		final Calendar cal = Calendar.getInstance();
-		final SimpleDateFormat sdf = new SimpleDateFormat(config.getString("date-format", "EEE, d MMM y, HH:mm"),
-				Locale.forLanguageTag(config.getString("date-locale", "en-US")));
+		final Locale loc = Locale.forLanguageTag(config.getString("date-locale", "en-US"));
+		final Calendar cal = GregorianCalendar.getInstance(loc);
+		final SimpleDateFormat sdf = new SimpleDateFormat(config.getString("date-format", "EEE, d MMM y, HH:mm"), loc);
 
 		final World world2 = world;
 
@@ -66,7 +68,7 @@ public final class TABWorldDatePlugin extends JavaPlugin {
 
 						final long dayTime = world2.getTime();
 						final long gameTime = world2.getGameTime();
-						final long gameTimeDays = gameTime - (gameTime % 24000L);
+						final long gameTimeDays = gameTime - dayTime;
 
 						cal.set(0, Calendar.JANUARY, 1, 0, 0, 0);
 
@@ -83,5 +85,8 @@ public final class TABWorldDatePlugin extends JavaPlugin {
 		} else {
 			Bukkit.getLogger().warning("No suitable world found. Placeholder %world-date% won't be available.");
 		}
+
+		final int pluginId = 16388;
+		new Metrics(this, pluginId);
 	}
 }

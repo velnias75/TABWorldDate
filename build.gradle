@@ -34,6 +34,9 @@ dependencies {
 		exclude group:"junit", module:"junit"
 	}
 	
+	implementation "org.bstats:bstats-bukkit:${project.bstats_version}"
+	shadow "org.bstats:bstats-bukkit:${project.bstats_version}"
+	
 	compileOnly "com.google.code.findbugs:annotations:${project.findbugs_version}"
 	annotationProcessor "com.google.code.findbugs:annotations:${project.findbugs_version}"
 	
@@ -45,4 +48,19 @@ processResources {
 	duplicatesStrategy = 'include'
         filter ReplaceTokens, tokens: [version: version]
     }
-} 
+}
+
+shadowJar {
+
+	archiveClassifier.set('')
+    
+    relocate 'org.bstats', 'de.rangun.TABWorldDate.shadowed.org.bstats'
+
+    exclude 'META-INF/**'
+    
+    minimize()
+}
+
+assemble {
+	dependsOn shadowJar
+}

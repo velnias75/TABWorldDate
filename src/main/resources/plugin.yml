@@ -4,5 +4,6 @@ version: '@version@'
 description: TAB plugin providing a placeholder for the world's current date
 authors:
   - Velnias75
+website: https://github.com/velnias75/TABWorldDate
 api-version: '1.16'
 depend: [TAB]
