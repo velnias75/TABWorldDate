@@ -1,4 +1,4 @@
-# ⌚ TABWorldDate
+# 📅 TABWorldDate
 
 ![TAB](https://github.com/NEZNAMY/TAB) addon plugin providing a placeholder for the world's current Gregorian date.
 
