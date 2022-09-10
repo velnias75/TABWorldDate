@@ -2,7 +2,7 @@
 
 ![TAB](https://github.com/NEZNAMY/TAB) addon plugin providing a placeholder for the world's current Gregorian date.
 
-*Display your worlds `gametime` (ticks since creation of the world) in human readable form like ` Sat, 10 Sep 1, 05:32`.*<br />
+*Display your world's `gametime` (ticks since creation of the world) in human readable form like ` Sat, 10 Sep 1, 05:32`.*<br />
 *The date starts at the January 1st, of the year 1 and counts up every Minecraft day (24000 ticks).*
 
 It adds a placeholder `%world-date%` to **![NEZNAMY's TAB plugin](https://github.com/NEZNAMY/TAB)** for use in *headers* or *footers*.
