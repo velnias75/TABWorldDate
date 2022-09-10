@@ -1,4 +1,4 @@
-# 📅 TABWorldDate
+# 📅 TABWorldDate ![Spiget Version](https://img.shields.io/spiget/version/105185?label=Latest%20version)
 
 ![TAB](https://github.com/NEZNAMY/TAB) addon plugin providing a placeholder for the world's current Gregorian date.
 
