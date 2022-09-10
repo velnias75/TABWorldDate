@@ -41,7 +41,7 @@ import me.neznamy.tab.api.TabAPI;
  */
 public final class TABWorldDatePlugin extends JavaPlugin { // NOPMD by heiko on 10.09.22, 11:15
 
-	private final PluginClient spigetClient = new PluginClient(-1, getDescription().getVersion(),
+	private final PluginClient spigetClient = new PluginClient(105185, getDescription().getVersion(),
 			getDescription().getName(), getLogger());
 
 	@Override

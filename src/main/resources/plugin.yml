@@ -4,6 +4,6 @@ version: '@version@'
 description: TAB addon plugin providing a placeholder for the world's current Gregorian date
 authors:
   - Velnias75
-website: https://github.com/velnias75/TABWorldDate
+website: https://www.spigotmc.org/resources/tabworlddate.105185/
 api-version: '1.16'
 depend: [TAB]
