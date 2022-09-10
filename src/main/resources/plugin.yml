@@ -1,7 +1,7 @@
-main: de.rangun.TABWorldDate.TABWorldDatePlugin
+main: de.rangun.tabworlddate.TABWorldDatePlugin
 name: TABWorldDate
 version: '@version@'
-description: TAB plugin providing a placeholder for the world's current date
+description: TAB addon plugin providing a placeholder for the world's current Gregorian date
 authors:
   - Velnias75
 website: https://github.com/velnias75/TABWorldDate

@@ -70,8 +70,8 @@ shadowJar {
 
 	archiveClassifier.set('')
     
-    relocate 'org.bstats', 'de.rangun.TABWorldDate.shadowed.org.bstats'
-	relocate 'de.rangun.spiget', 'de.rangun.TABWorldDate.shadowed.de.rangun.spiget'
+    relocate 'org.bstats', 'de.rangun.tabworlddate.shadowed.org.bstats'
+	relocate 'de.rangun.spiget', 'de.rangun.tabworlddate.shadowed.de.rangun.spiget'
 	
     exclude 'META-INF/**'
     

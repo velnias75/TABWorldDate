@@ -17,7 +17,7 @@
  * along with TABWorldDate.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package de.rangun.TABWorldDate;
+package de.rangun.tabworlddate;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -31,15 +31,15 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import de.rangun.TABWorldDate.listener.JoinListener;
 import de.rangun.spiget.PluginClient;
+import de.rangun.tabworlddate.listener.JoinListener;
 import me.neznamy.tab.api.TabAPI;
 
 /**
  * @author heiko
  *
  */
-public final class TABWorldDatePlugin extends JavaPlugin {
+public final class TABWorldDatePlugin extends JavaPlugin { // NOPMD by heiko on 10.09.22, 11:15
 
 	private final PluginClient spigetClient = new PluginClient(-1, getDescription().getVersion(),
 			getDescription().getName(), getLogger());
@@ -94,14 +94,14 @@ public final class TABWorldDatePlugin extends JavaPlugin {
 			Bukkit.getLogger().warning("No suitable world found. Placeholder %world-date% won't be available.");
 		}
 
-		final int pluginId = 16388;
+		final int pluginId = 16388; // NOPMD by heiko on 10.09.22, 11:09
 		new Metrics(this, pluginId);
 
 		new BukkitRunnable() {
 
 			@Override
 			public void run() {
-				spigetClient.checkVersion();
+				spigetClient.checkVersion(); // NOPMD by heiko on 10.09.22, 11:15
 			}
 
 		}.runTaskAsynchronously(this);

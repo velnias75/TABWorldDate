@@ -17,7 +17,7 @@
  * along with TABWorldDate.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package de.rangun.TABWorldDate.listener;
+package de.rangun.tabworlddate.listener;
 
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
